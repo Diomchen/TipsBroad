@@ -9,8 +9,9 @@
 <html>
   <head>
     <title>$Title$</title>
+    <meta http-equiv="refresh" content="0; url=#">
   </head>
   <body>
-  $END$
+  <h1>Hello!!</h1>
   </body>
 </html>
