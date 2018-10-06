@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 
 @WebServlet(name = "messageListServlet")
@@ -24,17 +25,20 @@ public class messageListServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String pagestr = request.getParameter("page");
         int page = 1;
-        if(pagestr!=null && Objects.equals("",pagestr)){
+        if(pagestr!=null && !Objects.equals("",pagestr)){
             page = Integer.parseInt(pagestr);
         }
 
-        mesg.getMessage(page,5);
+        List<message> mesgs =  mesg.getMessage(page,5);
+//        for(message x:mesgs){
+//            System.out.println(x.getId());
+//        }
         int Count = mesg.getCountMessages();
         int Last = Count%5 == 0 ? Count/5 : Count/5+1;
 
         request.setAttribute("page",page);
         request.setAttribute("Last",Last);
-        request.setAttribute("Message",mesg);
+        request.setAttribute("messages",mesgs);
         request.getRequestDispatcher("/WEB-INF/biz/message_list.jsp").forward(request,response);
     }
 

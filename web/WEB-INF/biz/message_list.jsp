@@ -63,7 +63,7 @@
                         <div class="alt-head">
                             <div class="alt-info">
                                 <span>作者：<a href="">${msg.username}</a></span>
-                                <span>时间：<fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${msg.createTime}"/></span>
+                                <span>时间：<fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${msg.create_time}"/></span>
                             </div>
                         </div>
                         <div class="alt-content">

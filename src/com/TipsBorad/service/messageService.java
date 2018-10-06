@@ -18,6 +18,6 @@ public class messageService {
     }
 
     public int getCountMessages(){
-        return mesgDAO.conntMessage();
+        return mesgDAO.countMessage();
     }
 }

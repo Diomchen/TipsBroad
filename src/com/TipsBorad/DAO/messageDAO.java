@@ -18,7 +18,8 @@ public class messageDAO {
     public List<message> getMessages(int page, int size){
         Connection conn = ConnectionUtil.getConnection();
 
-        String sql = "select * from message order by create_time desc limit ?,?";//从第m条开始取出n条
+        String sql;//从第m条开始取出n条
+        sql = "select * from message order by create_time desc limit ?,?";
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -39,28 +40,30 @@ public class messageDAO {
                         rs.getString("content"),
                         rs.getTimestamp("create_time")));
             }
-
+//            System.out.println("finished");
         } catch (SQLException e) {
-            System.out.println("sql语句解析错误");
+            System.out.println("sql语句解析错误1");
             e.printStackTrace();
         }finally {
             ConnectionUtil.release(rs,stmt,conn);
         }
-        return mesg;//------------<<<<<<<<<<<<
+        return mesg;
     }
 
-    public int conntMessage(){
+    public int countMessage(){
         Connection conn = ConnectionUtil.getConnection();
-        String sql = "select count (*) total from message;";
+        String sql;
+        sql = "select count(*) t_otal from message";
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             stmt = conn.prepareStatement(sql);
             rs = stmt.executeQuery();
             while(rs.next()){
-                   return rs.getInt( "total");
+                   return rs.getInt( "t_otal");
             }
         } catch (SQLException e) {
+            System.out.println("sql语句解析错误2");
             e.printStackTrace();
         }finally {
             ConnectionUtil.release(rs,stmt,conn);
