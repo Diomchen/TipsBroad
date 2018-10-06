@@ -1,6 +1,7 @@
 package com.TipsBorad.servlet;
 
 import com.TipsBorad.bean.message;
+import com.TipsBorad.service.messageService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,11 +13,11 @@ import java.util.Objects;
 
 @WebServlet(name = "messageListServlet")
 public class messageListServlet extends HttpServlet {
-    private message mesg;
+    private messageService mesg;
     @Override
     public void init() throws ServletException {
         super.init();
-        mesg = new message();
+        mesg = new messageService();
     }
 
     @Override
@@ -27,7 +28,7 @@ public class messageListServlet extends HttpServlet {
             page = Integer.parseInt(pagestr);
         }
 
-        messageService.getMessage();
+        mesg.getMessage();
 
 
 

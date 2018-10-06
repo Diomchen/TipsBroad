@@ -20,7 +20,7 @@ public final class ConnectionUtil {
         }
     }
 
-    public static Connection getConnectio(){
+    public static Connection getConnection(){
         try {
             return DriverManager.getConnection(url,user,password);
         } catch (SQLException e) {
