@@ -6,14 +6,14 @@ import java.sql.*;
 public final class ConnectionUtil {
     private ConnectionUtil(){}
 
-    private static String url = "jdbc:mysql://localhost:3306/tips";
+    private static String url = "jdbc:mysql://localhost:3306/tips?useUnicode=true&characterEncoding=utf8";
     private static String user = "root";
     private static String password = "csh66666";
 
 
     static{
         try {
-            Class.forName("com.mysql.jdbc");
+            Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             System.out.println("找不到数据库驱动");
             e.printStackTrace();
@@ -53,8 +53,7 @@ public final class ConnectionUtil {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                finally {
-                }
+
             }
         }
     }

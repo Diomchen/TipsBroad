@@ -18,7 +18,7 @@ public class messageDAO {
     public List<message> getMessages(int page, int size){
         Connection conn = ConnectionUtil.getConnection();
 
-        String sql = "select * from message order by create_time desc limit ?,?;";//从第m条开始取出n条
+        String sql = "select * from message order by create_time desc limit ?,?";//从第m条开始取出n条
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
