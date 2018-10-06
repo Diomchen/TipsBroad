@@ -28,10 +28,14 @@ public class messageListServlet extends HttpServlet {
             page = Integer.parseInt(pagestr);
         }
 
-        mesg.getMessage();
+        mesg.getMessage(page,5);
+        int Count = mesg.getCountMessages();
+        int Last = Count%5 == 0 ? Count/5 : Count/5+1;
 
-
-
+        request.setAttribute("page",page);
+        request.setAttribute("Last",Last);
+        request.setAttribute("Message",mesg);
+        request.getRequestDispatcher("/WEB-INF/biz/message_list.jsp").forward(request,response);
     }
 
     @Override
