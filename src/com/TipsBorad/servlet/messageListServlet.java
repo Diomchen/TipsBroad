@@ -37,7 +37,7 @@ public class messageListServlet extends HttpServlet {
         int Last = Count%5 == 0 ? Count/5 : Count/5+1;
 
         request.setAttribute("page",page);
-        request.setAttribute("Last",Last);
+        request.setAttribute("last",Last);
         request.setAttribute("messages",mesgs);
         request.getRequestDispatcher("/WEB-INF/biz/message_list.jsp").forward(request,response);
     }
