@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <title>留言板</title>
-        <link rel="stylesheet" href="../../../css/index.css">
+        <link rel="stylesheet" href="../../css/index.css">
         <script type="text/javascript">
             function submitMessageForm(flag) {
                 if ('first' == flag) {

@@ -1,8 +1,9 @@
+<%@ page import="java.util.Arrays" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 	<head>
 		<title>登录</title>
-		<link rel="stylesheet" href="../../../css/login.css">
+		<link rel="stylesheet" href="../../css/login.css">
 
 		<script type="text/javascript">
             function changeImg() {
@@ -12,7 +13,8 @@
 
             function checkVerificationCode() {
 				var verificationCode = document.getElementById('verificationCode').value;
-                var flag = (getCookie('v_c_v') == verificationCode);
+                var flag = (getCookie('v_c_v').toLowerCase() == verificationCode.toLowerCase());
+
                 if (!flag) {
                     alert('验证码输入错误');
 				}

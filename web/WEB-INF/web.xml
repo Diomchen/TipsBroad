@@ -17,9 +17,29 @@
         <servlet-class>com.TipsBorad.servlet.LoginServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>LoginPreServlet</servlet-name>
+        <servlet-class>com.TipsBorad.servlet.LoginPreServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>VerifingServlets</servlet-name>
+        <servlet-class>com.TipsBorad.servlet.VerifingServlets</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>VerifingServlets</servlet-name>
+        <url-pattern>/verificationCode.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>LoginPreServlet</servlet-name>
+        <url-pattern>/login.do</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/login.do</url-pattern>
+        <url-pattern>/main.do</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
