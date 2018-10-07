@@ -11,6 +11,17 @@
         <servlet-name>messageListServlet</servlet-name>
         <servlet-class>com.TipsBorad.servlet.messageListServlet</servlet-class>
     </servlet>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.TipsBorad.servlet.LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login.do</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>messageListServlet</servlet-name>
         <url-pattern>/message/list.do</url-pattern>
