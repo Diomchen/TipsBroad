@@ -26,10 +26,13 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(Objects.equals("/userInfo.do",request.getContextPath())){
+        if(Objects.equals("/userInfo.do",request.getServletPath())){
+            User u = (User)request.getSession().getAttribute("user");
+            System.out.println(u.getUsername());
+//            request.setAttribute("user",u);
             request.getRequestDispatcher("/WEB-INF/biz/user.jsp").forward(request,response);
         }
-        else if(Objects.equals("/editUserPrompt.do",request.getContextPath())){
+        else if(Objects.equals("/editUserPrompt.do",request.getServletPath())){
             Long id = Long.valueOf(request.getParameter("id"));
             User user = userService.getUserById(id);
             if(user != null){
@@ -40,7 +43,7 @@ public class UserServlet extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/biz/user.jsp").forward(request,response);
             }
         }
-        else if(Objects.equals("/editUser.do",request.getContextPath())){
+        else if(Objects.equals("/editUser.do",request.getServletPath())){
             Long id = Long.valueOf(request.getParameter("id"));
             String name = request.getParameter("name");
             String password = request.getParameter("password");

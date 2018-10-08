@@ -1,3 +1,4 @@
+<%@ page import="com.TipsBorad.bean.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -18,7 +19,11 @@
         </nav>
         <div class="container">
             <div class="jumbotron">
-                <h1>Hello, ${user.name}!</h1>
+                <h1>Hello, ${user.username}!</h1>
+                <%--<%--%>
+                    <%--User user = (User)request.getSession().getAttribute("user");--%>
+                    <%--System.out.println(user.getUsername());--%>
+                <%--%>--%>
                 <p>信息都在这里了 ^_^</p>
             </div>
             <div class="page-header">
@@ -29,19 +34,19 @@
                 <div class="form-group">
                     <label for="name" class="col-sm-2 control-label">用户 ：</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="name" value="${user.name}" readonly>
+                        <input type="text" class="form-control" id="name" value="${user.username}" readonly>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="realName" class="col-sm-2 control-label">姓名 ：</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="realName" value="${user.realName}" readonly>
+                        <input type="text" class="form-control" id="realName" value="${user.realname}" readonly>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="birthday" class="col-sm-2 control-label">生日 ：</label>
                     <div class="col-sm-8">
-                        <input name=""  class="form-control" rows="3" id="birthday" value="${user.birthday}" readonly>
+                        <input name=""  class="form-control" rows="3" id="birthday" value="${user.birth}" readonly>
                     </div>
                 </div>
                 <div class="form-group">

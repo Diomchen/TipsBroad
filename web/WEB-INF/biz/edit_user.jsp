@@ -18,7 +18,7 @@
         </nav>
         <div class="container">
             <div class="jumbotron">
-                <h1>Hello, ${user.name}!</h1>
+                <h1>Hello, ${user.username}!</h1>
                 <p>请斟酌后修改 ^_^</p>
             </div>
             <div class="page-header">
@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label for="name" class="col-sm-2 control-label">用户 ：</label>
                     <div class="col-sm-6">
-                        <input name="name" class="form-control" id="name" value="${user.name}" readonly>
+                        <input name="name" class="form-control" id="name" value="${user.username}" readonly>
                     </div>
                 </div>
                 <div class="form-group">
@@ -41,13 +41,13 @@
                 <div class="form-group">
                     <label for="realName" class="col-sm-2 control-label">姓名 ：</label>
                     <div class="col-sm-8">
-                        <input name="realName" class="form-control" id="realName" value="${user.realName}">
+                        <input name="realName" class="form-control" id="realName" value="${user.realname}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="birthday" class="col-sm-2 control-label">生日 ：</label>
                     <div class="col-sm-8">
-                        <input name="birthday" class="form-control" id="birthday" value="${user.birthday}">
+                        <input name="birthday" class="form-control" id="birthday" value="${user.birth}">
                     </div>
                 </div>
                 <div class="form-group">
