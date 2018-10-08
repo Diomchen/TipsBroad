@@ -14,4 +14,11 @@ public class UserService {
         return userDao.getUser(username,password);
     }
 
+    public User getUserById(Long id){
+        return userDao.getUserById(id);
+    }
+    public boolean upDate(User user){
+        return upDate(user);
+    }
+
 }

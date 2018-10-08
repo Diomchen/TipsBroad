@@ -56,8 +56,18 @@
         </init-param>
     </filter>
 
+    <filter>
+        <filter-name>UserFilter</filter-name>
+        <filter-class>com.TipsBorad.filter.UserFilter</filter-class>
+    </filter>
+
     <filter-mapping>
         <filter-name>CharSetFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>UserFilter</filter-name>
         <url-pattern>*.do</url-pattern>
     </filter-mapping>
 

@@ -33,9 +33,6 @@ public class LoginServlet extends HttpServlet {
         else{
             request.getRequestDispatcher("/login.do").forward(request,response);
         }
-//        if(username != null && !Objects.equals(username,"") && password != null && !Objects.equals(password,"")){
-//
-//        }
     }
 
     @Override

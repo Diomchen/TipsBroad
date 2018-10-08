@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>修改个人信息</title>
-        <link rel="stylesheet" href="../../../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../../css/add.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/add.css">
     </head>
     <body>
         <nav class="navbar navbar-default">
