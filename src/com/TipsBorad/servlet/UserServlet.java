@@ -54,9 +54,15 @@ public class UserServlet extends HttpServlet {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-
             boolean result = userService.upDate(user);
-
+            if(result){
+                request.getSession().setAttribute("user",user);
+                request.setAttribute("user",user);
+                request.getRequestDispatcher("/WEB-INF/biz/user.jsp").forward(request,response);
+            }
+            else{
+                request.getRequestDispatcher("/WEB-INF/err/404.jsp").forward(request,response);
+            }
         }
         else{
             request.getRequestDispatcher("/WEB-INF/err/404.jsp").forward(request,response);

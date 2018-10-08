@@ -6,7 +6,7 @@ import java.io.IOException;
 
 @WebFilter(filterName = "CharSetFilter")
 public class CharSetFilter implements Filter {
-    private String encode;
+    private String encoding;
     public void destroy() {
 
     }
@@ -17,7 +17,7 @@ public class CharSetFilter implements Filter {
     }
 
     public void init(FilterConfig config) throws ServletException {
-        this.encode = config.getInitParameter("encode");
+        this.encoding = config.getInitParameter("encoding");
     }
 
 }

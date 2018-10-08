@@ -27,6 +27,26 @@
         <servlet-class>com.TipsBorad.servlet.VerifingServlets</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>com.TipsBorad.servlet.UserServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/userInfo.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/editUserPrompt.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/editUser.do</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>VerifingServlets</servlet-name>
         <url-pattern>/verificationCode.do</url-pattern>
@@ -47,24 +67,24 @@
         <url-pattern>/message/list.do</url-pattern>
     </servlet-mapping>
 
-    <filter>
-        <filter-name>CharSetFilter</filter-name>
-        <filter-class>com.TipsBorad.filter.CharSetFilter</filter-class>
-        <init-param>
-            <param-name>encode</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
-    </filter>
+    <!--<filter>-->
+        <!--<filter-name>CharSetFilter</filter-name>-->
+        <!--<filter-class>com.TipsBorad.filter.CharSetFilter</filter-class>-->
+        <!--<init-param>-->
+            <!--<param-name>encoding</param-name>-->
+            <!--<param-value>ISO-8859-1</param-value>-->
+        <!--</init-param>-->
+    <!--</filter>-->
 
     <filter>
         <filter-name>UserFilter</filter-name>
         <filter-class>com.TipsBorad.filter.UserFilter</filter-class>
     </filter>
 
-    <filter-mapping>
-        <filter-name>CharSetFilter</filter-name>
-        <url-pattern>*.do</url-pattern>
-    </filter-mapping>
+    <!--<filter-mapping>-->
+        <!--<filter-name>CharSetFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
 
     <filter-mapping>
         <filter-name>UserFilter</filter-name>

@@ -3,10 +3,7 @@ package com.TipsBorad.DAO;
 import com.TipsBorad.bean.User;
 import com.TipsBorad.common.ConnectionUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserDAO {
     public UserDAO(){
@@ -78,7 +75,23 @@ public class UserDAO {
     public boolean upDate(User user){
         Connection conn = ConnectionUtil.getConnection();
         PreparedStatement stmt = null;
-        String sql = "update user value";
+        String sql = "update user set username = ?,password = ?,realname = ?,birth = ?,phone = ?,address = ?,id = ?";
+
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1,user.getUsername());
+            stmt.setString(2,user.getPassword());
+            stmt.setString(3,user.getRealname());
+            stmt.setDate(4,new Date(user.getBirth().getTime()));
+            stmt.setString(5,user.getPhone());
+            stmt.setString(6,user.getAddress());
+            stmt.setLong(7,user.getId());
+            stmt.executeQuery();
+        } catch (SQLException e) {
+            System.out.println("wrong in input!");
+            e.printStackTrace();
+        }
+        return true;
     }
 
 
