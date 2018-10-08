@@ -83,7 +83,6 @@ public class UserDAO {
             stmt.setString(2,user.getPassword());
             stmt.setString(3,user.getRealname());
             stmt.setDate(4,new Date(user.getBirth().getTime()));
-
             stmt.setString(5,user.getPhone());
             stmt.setString(6,user.getAddress());
             stmt.setLong(7,user.getId());
