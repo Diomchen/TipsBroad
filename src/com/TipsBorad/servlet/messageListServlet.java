@@ -30,9 +30,7 @@ public class messageListServlet extends HttpServlet {
         }
 
         List<message> mesgs =  mesg.getMessage(page,5);
-//        for(message x:mesgs){
-//            System.out.println(x.getId());
-//        }
+
         int Count = mesg.getCountMessages();
         int Last = Count%5 == 0 ? Count/5 : Count/5+1;
 

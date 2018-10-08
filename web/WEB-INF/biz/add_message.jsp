@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>新建留言</title>
-        <link rel="stylesheet" href="../../../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../../css/add.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/add.css">
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -18,7 +18,7 @@
         </nav>
         <div class="container">
             <div class="jumbotron">
-                <h1>Hello, ${user.name}!</h1>
+                <h1>Hello, ${user.username}!</h1>
                 <p>既然来了，就说点什么吧</p>
             </div>
             <div class="page-header">

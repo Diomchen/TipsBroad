@@ -1,12 +1,12 @@
 package com.TipsBorad.DAO;
 
+import com.TipsBorad.bean.User;
 import com.TipsBorad.bean.message;
 import com.TipsBorad.common.ConnectionUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,5 +70,32 @@ public class messageDAO {
         }
 
         return 0;
+    }
+    public boolean upDateMessage(String title, String content, User user){
+        Connection conn = ConnectionUtil.getConnection();
+        PreparedStatement stmt = null;
+        String sql = null;
+        String date = null;
+        sql = "insert into message(?,?,?,?,?,?)";
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setLong(1,user.getId());
+            stmt.setLong(2,user.getId());
+            stmt.setString(3,user.getUsername());
+            stmt.setString(4,title);
+            stmt.setString(5,content);
+            try {
+                stmt.setTimestamp(6,);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            stmt.execute();
+
+        } catch (SQLException e) {
+            System.out.println("Add Message Fail!");
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }

@@ -1,6 +1,7 @@
 package com.TipsBorad.service;
 
 import com.TipsBorad.DAO.messageDAO;
+import com.TipsBorad.bean.User;
 import com.TipsBorad.bean.message;
 
 import java.util.List;
@@ -19,5 +20,9 @@ public class messageService {
 
     public int getCountMessages(){
         return mesgDAO.countMessage();
+    }
+
+    public boolean upDateMessage(String title, String content, User user){
+        return mesgDAO.upDateMessage(title,content,user);
     }
 }
