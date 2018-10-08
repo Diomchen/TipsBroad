@@ -75,7 +75,7 @@ public class UserDAO {
     public boolean upDate(User user){
         Connection conn = ConnectionUtil.getConnection();
         PreparedStatement stmt = null;
-        String sql = "update user set username = ?,password = ?,realname = ?,birth = ?,phone = ?,address = ?,id = ?";
+        String sql = "update user set username = ?,password = ?,realname = ?,birth = ?,phone = ?,address = ? where id = ?";
 
         try {
             stmt = conn.prepareStatement(sql);
@@ -83,13 +83,18 @@ public class UserDAO {
             stmt.setString(2,user.getPassword());
             stmt.setString(3,user.getRealname());
             stmt.setDate(4,new Date(user.getBirth().getTime()));
+
             stmt.setString(5,user.getPhone());
             stmt.setString(6,user.getAddress());
             stmt.setLong(7,user.getId());
-            stmt.executeQuery();
+            stmt.execute();
         } catch (SQLException e) {
             System.out.println("wrong in input!");
             e.printStackTrace();
+            return false;
+        }
+        finally {
+            ConnectionUtil.release(null,stmt,conn);
         }
         return true;
     }

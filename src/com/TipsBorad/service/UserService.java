@@ -18,7 +18,7 @@ public class UserService {
         return userDao.getUserById(id);
     }
     public boolean upDate(User user){
-        return upDate(user);
+        return userDao.upDate(user);
     }
 
 }
