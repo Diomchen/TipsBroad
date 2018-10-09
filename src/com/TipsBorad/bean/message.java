@@ -4,29 +4,29 @@ import java.util.Date;
 
 public class message {
 
-//    private long id;
+    private long id;
     private long user_id;
     private String username;
     private String title;
     private String content;
     private Date create_time;
 
-    public message( long user_id , String username , String title , String content , Date create_time ){
+    public message( long user_id , String username , String title , String content  ){
 //        this.id = id;
         this.user_id = user_id;
         this.username = username;
         this.title = title;
         this.content = content;
-        this.create_time = create_time;
+//        this.create_time = create_time;
     }
 
-//    public long getId() {
-//        return id;
-//    }
+    public long getId() {
+        return id;
+    }
 
-//    public void setId(long id) {
-//        this.id = id;
-//    }
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public long getUser_id() {
         return user_id;

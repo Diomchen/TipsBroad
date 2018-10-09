@@ -39,8 +39,9 @@ public class messageDAO {
                         rs.getLong("user_id"),
                         rs.getString("username"),
                         rs.getString("title"),
-                        rs.getString("content"),
-                        rs.getTimestamp("create_time")));
+                        rs.getString("content")
+//                        rs.getTimestamp("create_time")
+));
             }
 //            System.out.println("finished");
         } catch (SQLException e) {
@@ -85,8 +86,9 @@ public class messageDAO {
             stmt.setString(2,msg.getUsername());
             stmt.setString(3,msg.getTitle());
             stmt.setString(4,msg.getContent());
-            stmt.setTimestamp(5, (Timestamp) msg.getCreate_time());
-
+            stmt.setTimestamp(5,new Timestamp(System.currentTimeMillis()) );
+//            System.out.println(new Timestamp(msg.getCreate_time().getTime()));
+            stmt.execute();
         } catch (SQLException e) {
             System.out.println("add message filed!");
             e.printStackTrace();

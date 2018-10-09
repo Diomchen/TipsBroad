@@ -30,7 +30,7 @@ public class MessageServlet extends HttpServlet {
         String content = request.getParameter("content");
 
         if(Objects.equals("/addMessage.do",request.getServletPath())){
-            message msg = new message(user.getId(),user.getUsername(),title,content,new Timestamp(System.currentTimeMillis()));
+            message msg = new message(user.getId(),user.getUsername(),title,content);
             boolean result =  msgsv.upDateMessage(msg);
             if(result){
                 request.getRequestDispatcher("/message/list.do").forward(request,response);
