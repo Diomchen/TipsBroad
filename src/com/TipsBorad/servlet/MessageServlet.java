@@ -1,6 +1,7 @@
 package com.TipsBorad.servlet;
 
 import com.TipsBorad.bean.User;
+import com.TipsBorad.bean.message;
 import com.TipsBorad.service.messageService;
 
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @WebServlet(name = "MessageServlet")
@@ -23,15 +25,15 @@ public class MessageServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = (User)request.getSession().getAttribute("username");
-
+        User user = (User)request.getSession().getAttribute("user");
         String title = request.getParameter("title");
         String content = request.getParameter("content");
 
         if(Objects.equals("/addMessage.do",request.getServletPath())){
-            boolean result =  msgsv.upDateMessage(title,content,user);
+            message msg = new message(user.getId(),user.getUsername(),title,content,new Timestamp(System.currentTimeMillis()));
+            boolean result =  msgsv.upDateMessage(msg);
             if(result){
-                request.getRequestDispatcher("/WEB-INF/biz/message_list.jsp").forward(request,response);
+                request.getRequestDispatcher("/message/list.do").forward(request,response);
             }
             else{
                 request.getRequestDispatcher("/WEB-INF/err/404.jsp").forward(request,response);

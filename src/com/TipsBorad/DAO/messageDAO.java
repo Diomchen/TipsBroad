@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import static sun.security.krb5.internal.crypto.Nonce.value;
+
 public class messageDAO {
     public messageDAO(){
 
@@ -33,7 +35,7 @@ public class messageDAO {
 
             while(rs.next()){
                 mesg.add(new message(
-                        rs.getLong("id"),
+//                        rs.getLong("id"),
                         rs.getLong("user_id"),
                         rs.getString("username"),
                         rs.getString("title"),
@@ -71,31 +73,26 @@ public class messageDAO {
 
         return 0;
     }
-    public boolean upDateMessage(String title, String content, User user){
+    public boolean upDateMessage(message msg){
         Connection conn = ConnectionUtil.getConnection();
         PreparedStatement stmt = null;
         String sql = null;
-        String date = null;
-        sql = "insert into message(?,?,?,?,?,?)";
+        sql = "insert into message(user_id,username,title,content,create_time) values (?,?,?,?,?)";
+
         try {
             stmt = conn.prepareStatement(sql);
-            stmt.setLong(1,user.getId());
-            stmt.setLong(2,user.getId());
-            stmt.setString(3,user.getUsername());
-            stmt.setString(4,title);
-            stmt.setString(5,content);
-            try {
-                stmt.setTimestamp(6,);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            stmt.execute();
+            stmt.setLong(1,msg.getUser_id());
+            stmt.setString(2,msg.getUsername());
+            stmt.setString(3,msg.getTitle());
+            stmt.setString(4,msg.getContent());
+            stmt.setTimestamp(5, (Timestamp) msg.getCreate_time());
 
         } catch (SQLException e) {
-            System.out.println("Add Message Fail!");
+            System.out.println("add message filed!");
             e.printStackTrace();
             return false;
         }
         return true;
     }
+
 }

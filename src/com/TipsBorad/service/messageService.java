@@ -22,7 +22,7 @@ public class messageService {
         return mesgDAO.countMessage();
     }
 
-    public boolean upDateMessage(String title, String content, User user){
-        return mesgDAO.upDateMessage(title,content,user);
+    public boolean upDateMessage(message msg){
+        return mesgDAO.upDateMessage(msg);
     }
 }
