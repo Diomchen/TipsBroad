@@ -41,7 +41,17 @@
         <servlet-name>MessageServlet</servlet-name>
         <servlet-class>com.TipsBorad.servlet.MessageServlet</servlet-class>
     </servlet>
-    
+
+    <servlet>
+        <servlet-name>RegisterPromptServlet</servlet-name>
+        <servlet-class>com.TipsBorad.servlet.RegisterPromptServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RegisterPromptServlet</servlet-name>
+        <url-pattern>/regPrompt.do</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>MessageServlet</servlet-name>
         <url-pattern>/addMessage.do</url-pattern>

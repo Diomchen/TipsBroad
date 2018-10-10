@@ -10,16 +10,42 @@
 <head>
     <title>注册</title>
     <link rel="stylesheet" href="../../css/register.css">
-    <script>
+    <script type="text/javascript">
+        function changeImg() {
+            var img = document.getElementById("img");
+            img.src = "/verificationCode.do?date = "+ new Date();
+        }
 
+        function checkVerificationCode(){
+            var verificationCode = document.getElementById("verificationCode").value;
+            var flag = (getCookie('v_c_v').toLowerCase() == verificationCode.toLowerCase());
 
+            if(!flag){
+                alert('验证码错误');
+            }
+            return flag;
+        }
+
+        function getCookie(cookie_name){
+            var allCookies = document.cookie;
+            var cookie_pos = allCookies.indexOf(cookie_name);
+            if(cookie_pos != -1){
+                cookie_pos += cookie_name.length + 1;
+                var cookie_end = allCookies.indexOf(";",cookie_pos);
+                if(cookie_end == -1){
+                    cookie_end = allCookies.length;
+                }
+                return unescape(allCookies.substring(cookie_pos,cookie_end));
+            }
+            return null;
+        }
     </script>
 </head>
     <div class="register">
         <div class="header">
             <h1>
                 <a href="/login.do">登录</a>
-                <a href="/regist.do">注册</a>
+                <a href="/regPrompt.do">注册</a>
             </h1>
         </div>
         <form action="/re.do" method="post">
