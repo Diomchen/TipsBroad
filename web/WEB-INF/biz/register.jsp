@@ -41,6 +41,7 @@
         }
     </script>
 </head>
+<body>
     <div class="register">
         <div class="header">
             <h1>
@@ -76,19 +77,16 @@
 
             <div class="idcode">
                 <input type="text" id="verificationCode"  placeholder="请输入验证码">
-                <a href="#" onclick = "javascript:changeImg()"></a>
                 <span><img id="img" src="/verificationCode.do"></span>
+                <a href='#' onclick="javascript:changeImg()">&nbsp;&nbsp;&nbsp;&nbsp;换一张</a>
                 <div class="clear"></div>
             </div>
 
             <div>
-                <input type="submit" id="reg-submit" name="reg-submit" value="登录">
+                <input type="submit" id="reg-submit" name="reg-submit" value="注册">
             </div>
         </form>
     </div>
-<body>
-
-
 
 </body>
 </html>
