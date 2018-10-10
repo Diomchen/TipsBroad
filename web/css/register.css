@@ -1,0 +1,14 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+body{
+    background:rgba(238,238,238,0.5);
+    position:relative;
+}
