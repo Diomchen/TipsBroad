@@ -98,5 +98,23 @@ public class UserDAO {
         return true;
     }
 
-
+    public boolean CheckUsernameAndPhone(String username,String phone){
+        Connection conn =  ConnectionUtil.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "select * from user where username = ? or phone = ? ";
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1,"username");
+            stmt.setString(2,"phone");
+            while(rs.next()){
+               return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            return false;
+        }
+    }
 }

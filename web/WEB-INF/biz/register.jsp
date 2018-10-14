@@ -52,6 +52,7 @@
         <form action="/re.do" method="post">
             <div>
                 <input type="text" id="username" name="username" placeholder="请输入用户名">
+                <span></span>
             </div>
 
             <div>
@@ -62,13 +63,14 @@
                 <input type="text" id="realname" name="realname" placeholder="请输入真实姓名">
             </div>
 
-            <%--这个地方得用到复选框--%>
+            <%--这个地方得用到复选框，暂时不用--%>
             <%--<div>--%>
                 <%--<input type="text" id="birth" name="username" placeholder="请输入生日">--%>
             <%--</div>--%>
 
             <div>
                 <input type="text" id="phone" name="phone" placeholder="请输入电话号码">
+                <span></span>
             </div>
 
             <div>
